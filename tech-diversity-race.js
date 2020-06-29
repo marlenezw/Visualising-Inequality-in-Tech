@@ -31,17 +31,17 @@ function TechDiversityRace() {
 
     // Create a select DOM element.
     this.select = createSelect();
-    this.select.position(350, 40);
-
+     // Set select position.
+      this.select.position(400, 30);
+        
     // Fill the options with all company names.
-    var companies = this.data.columns;
-    // First entry is empty.
-    for (let i = 1; i < companies.length; i++) {
-      this.select.option(companies[i]);
+    // ???
+      for (var i = 1; i < this.data.getColumnCount(); i++){
+      this.select.option(this.data.columns[i]);
     }
   };
 
-  this.destroy = function() {
+    this.destroy = function() {
     this.select.remove();
   };
 
@@ -56,6 +56,7 @@ function TechDiversityRace() {
 
     // Get the value of the company we're interested in from the
     // select item.
+    // Use a temporary hard-code example for now.
     var companyName = this.select.value();
 
     // Get the column of raw data for companyName.

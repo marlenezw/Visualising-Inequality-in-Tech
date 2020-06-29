@@ -115,7 +115,7 @@ function PayGapTimeSeries() {
       // Create an object to store data for the current year.
       var current = {
         // Convert strings to numbers.
-        'year': this.data.getNum(i, 'year'),
+         'year': this.data.getNum(i, 'year'),
         'payGap': this.data.getNum(i, 'pay_gap')
       };
 
@@ -123,10 +123,8 @@ function PayGapTimeSeries() {
         // Draw line segment connecting previous year to current
         // year pay gap.
         stroke(0);
-        line(this.mapYearToWidth(previous.year),
-             this.mapPayGapToHeight(previous.payGap),
-             this.mapYearToWidth(current.year),
-             this.mapPayGapToHeight(current.payGap));
+        line(this.mapYearToWidth(previous.year), this.mapPayGapToHeight(previous.payGap), this.mapYearToWidth(current.year), 
+        this.mapPayGapToHeight(current.payGap));
 
         // The number of x-axis labels to skip so that only
         // numXTickLabels are drawn.
@@ -168,7 +166,7 @@ function PayGapTimeSeries() {
     return map(value,
                this.minPayGap,
                this.maxPayGap,
-               this.layout.bottomMargin, // Smaller pay gap at bottom.
-               this.layout.topMargin);   // Bigger pay gap at top.
+               this.layout.bottomMargin,   // Draw bottom-to-top from margin.
+               this.layout.topMargin);
   };
 }
